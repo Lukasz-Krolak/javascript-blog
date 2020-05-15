@@ -16,7 +16,7 @@
                 activeLink.classList.remove('active');
             }
 
-            /* add class 'active' to the clicked link */
+            /* [DONE] add class 'active' to the clicked link */
             clickedElement.classList.add('active');
             console.log('clickedElement:', clickedElement);
 
@@ -33,11 +33,12 @@
             console.log(articleSelector);
 
             /* [DONE] find the correct article using the selector (value of 'href' attribute) */
-            const targetArticle = document.querySelector(articleSelector);
+            const targetArticle = articleSelector.querySelector(articleSelector);
             console.log(targetArticle);
 
+
             /* add class 'active' to the correct article */
-            targetArticle.classList.add('active');
+            targetArticle.classList.add('.active');
             console.log('clickedElement:', targetArticle);
         }
 
