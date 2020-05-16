@@ -75,11 +75,11 @@
             const articleTitle = article.querySelector(optTitleSelector).innerHTML;	
             console.log ('znaleziony tytuł',articleTitle)	
             /* get the title from the title element */	
-            const title = articleId.getAttribute('#article-1');	
-            console.log=('tytuł',title);	
-            /* create HTML of the link */	
 
-            /* insert link into titleList */	
+            /* create HTML of the link */	
+            const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+            /* insert link into titleList */
+            titleList.innerHTML = titleList.innerHTML + linkHTML;
         }	
 
     }	
