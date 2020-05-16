@@ -42,7 +42,8 @@
             console.log('clickedElement:', targetArticle);	
         }	
 
-        const links = document.querySelectorAll('.titles a');	
+        const links = document.querySelectorAll('.titles a');
+        console.log('testowa',links);	
 
         for (let link of links) {	
             link.addEventListener('click', titleClickHandler);	
@@ -61,6 +62,7 @@
         /* for each article */	
         const articles = document.querySelectorAll(optArticleSelector);	
         console.log('articles', articles);	
+        let html = '';
 
         for (let article of articles) {	
 
@@ -75,12 +77,14 @@
             const articleTitle = article.querySelector(optTitleSelector).innerHTML;	
             console.log ('znaleziony tytuł',articleTitle)	
             /* get the title from the title element */	
-
+            
             /* create HTML of the link */	
             const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
             /* insert link into titleList */
             titleList.innerHTML = titleList.innerHTML + linkHTML;
+           
         }	
+       
 
     }	
 
