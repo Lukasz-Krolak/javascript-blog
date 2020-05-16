@@ -56,19 +56,31 @@
     function generateTitleLinks() {
 
         /* remove contents of titleList */
-        titleList = document.querySelector(optTitleListSelector),
+        titleList = document.querySelector(optTitleListSelector);
         titleList.innerHTML = '';
         /* for each article */
+        const articles = document.querySelectorAll(optArticleSelector);
+        console.log('articles', articles);
 
-        /* get the article id */
+        for (let article of articles) {
+            
+            article.addEventListener('click', generateTitleLinks);
+            console.log('kliknięty artykuł',article);
+        
+            /* get the article id */
+            const articleId = article.getAttribute('id');
+            console.log('articleId',articleId);
 
-        /* find the title element */
+            /* find the title element */
+            const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+            console.log ('znaleziony tytuł',articleTitle)
+            /* get the title from the title element */
+            const title = articleTitle.querySelector(optTitleListSelector);
+            console.log=('tytuł',title);
+            /* create HTML of the link */
 
-        /* get the title from the title element */
-
-        /* create HTML of the link */
-
-        /* insert link into titleList */
+            /* insert link into titleList */
+        }
 
     }
 
