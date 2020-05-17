@@ -79,11 +79,11 @@
             titleList.innerHTML = titleList.innerHTML + linkHTML;
         }
         const links = document.querySelectorAll('.titles a');
-    console.log('testowa', links);
+        console.log('testowa', links);
 
-    for (let link of links) {
-        link.addEventListener('click', titleClickHandler);
+        for (let link of links) {
+            link.addEventListener('click', titleClickHandler);
+        }
     }
-    }
-        generateTitleLinks();
+    generateTitleLinks();
 } 
