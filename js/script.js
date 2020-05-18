@@ -1,5 +1,5 @@
-{
 
+{
     'use strict';
 
 
@@ -42,12 +42,10 @@
         console.log('clickedElement:', targetArticle);
     }
 
-
-
-
-    const optArticleSelector = '.post',
-        optTitleSelector = '.post-title',
-        optTitleListSelector = '.titles';
+    const optArticleSelector = '.post';
+    const optTitleSelector = '.post-title';
+    const optTitleListSelector = '.titles';
+    const optArticleTagsSelector = '.post-tags .list';
 
     function generateTitleLinks() {
 
@@ -86,4 +84,59 @@
         }
     }
     generateTitleLinks();
-} 
+
+    function generateTags() {
+        let html = '';
+        /* find all articles */
+
+        const articles = document.querySelectorAll(optArticleSelector);
+        console.log('artykuly znalezione', articles);
+
+        /* START LOOP: for every article: */
+        for (let article of articles) {
+
+            article.addEventListener('click', generateTitleLinks);
+            console.log('kliknięty artykuł', article);
+        }
+
+        /* find tags wrapper */
+
+
+        let tagList = article.querySelector(optArticleTagsSelector);
+        console.log('lista tagów', taglist);
+
+        /* make html variable with empty string */
+
+        tagList.innerHTML = '';
+    
+        /* get tags from data-tags attribute */
+
+        const articleTags = article.getAttribute('href');
+        console.log('tagi artykulu', articleTags);
+
+        /* split tags into array */
+        
+        const articleTagsArray = articleTags.split(' ');
+
+        /* START LOOP: for each tag */
+
+        for(let tag of articleTagsArray){
+            console.log('tag',tag);
+            
+            /* generate HTML of the link */
+            
+            const linkHTML = '<li><a href="#tag-' + a + '</span></a></li>';
+            console.log('link html',linkHTML);
+        
+        }
+            /* add generated code to html variable */
+
+            /* END LOOP: for each tag */
+
+        /* insert HTML of all the links into the tags wrapper */
+
+        /* END LOOP: for every article: */
+    }
+
+    generateTags();
+}
