@@ -116,7 +116,7 @@
 
       /* get tags from data-tags attribute */
 
-      const articleTags = article.getAttribute(data-tags);
+      const articleTags = article.getAttribute(data - tags);
       console.log('tagi artykulu', articleTags);
 
       /* split tags into array */
@@ -144,22 +144,23 @@
         console.log('tag', tag);
         /* insert HTML of all the links into the tags wrapper */
         tag.innerHTML = tagList.innerHTML + linkHTML;
-      /* END LOOP: for every article: */
+        /* END LOOP: for every article: */
+      }
     }
+    generateTags();
 
-  generateTags();
-  
-  const tagCickHandler = function (event) {
-    const clickedElement = this;
-    
-    /*add 'active' to cliked element */ 
-    clickedElement.classList.add('active');
-    console.log('clickedElement:', clickedElement);
-    
+    const tagCickHandler = function (event) {
+      const clickedElement = this;
+
+      /*add 'active' to cliked element */
+      clickedElement.classList.add('active');
+      console.log('clickedElement:', clickedElement);
+
+    };
+
+    const addClickListenersToTags = function () {
+
+    };
+    addClickListenersToTags();
   };
-  
-  const addClickListenersToTags = function(){
-      
-  };
-  addClickListenersToTags();
 }
