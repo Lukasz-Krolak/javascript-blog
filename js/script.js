@@ -81,15 +81,15 @@
 
     }
   };
+
+  generateTitleLinks();
+  
   const links = document.querySelectorAll('.titles a');
   console.log('testowa', links);
 
   for (let link of links) {
     link.addEventListener('click', titleClickHandler);
   }
-
-
-  generateTitleLinks();
 
   const optArticleTagsSelector = '.post-tags .list';
 
@@ -116,7 +116,7 @@
 
       /* get tags from data-tags attribute */
 
-      const articleTags = article.getAttribute(data - tags);
+      const articleTags = article.getAttribute(data-tags);
       console.log('tagi artykulu', articleTags);
 
       /* split tags into array */
@@ -130,7 +130,7 @@
 
         /* generate HTML of the link */
 
-        const linkHTML = '<li><a href="#' + tagList + '"><span>' + tag + '</span></a></li>'; /*do wyjaśnienia*/
+        const linkHTML = '<li><a href="#' + tagList + '"><span>' + tag + '</span></a></li>'; 
         console.log('link html', linkHTML);
 
         /* add generated code to html variable */
@@ -149,18 +149,18 @@
     }
     generateTags();
 
-    const tagCickHandler = function (event) {
-      const clickedElement = this;
+    // const tagCickHandler = function (event) {
+    //   const clickedElement = this;
 
-      /*add 'active' to cliked element */
-      clickedElement.classList.add('active');
-      console.log('clickedElement:', clickedElement);
+    //   /*add 'active' to cliked element */
+    //   clickedElement.classList.add('active');
+    //   console.log('clickedElement:', clickedElement);
 
-    };
+    // };
 
-    const addClickListenersToTags = function () {
+    // const addClickListenersToTags = function () {
 
-    };
-    addClickListenersToTags();
+    // };
+    // addClickListenersToTags();
   };
 }
