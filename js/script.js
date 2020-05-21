@@ -40,14 +40,16 @@
     console.log('clickedElement:', targetArticle);
   };
 
+  // 7.2 początek, dodanie tagów//
+
+
   const optArticleSelector = '.post';
   const optTitleSelector = '.post-title';
   const optTitleListSelector = '.titles';
 
 
-
-  const generateTitleLinks = function () {
-
+  const generateTitleLinks = function (customSelector = '') {
+    
     /* remove contents of titleList */
 
     let titleList = document.querySelector(optTitleListSelector);
@@ -55,9 +57,9 @@
 
     /* for each article */
 
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
     console.log('articles', articles);
-    // let html = '';
+    
 
     for (let article of articles) {
       article.addEventListener('click', generateTitleLinks);
@@ -95,9 +97,10 @@
 
   const generateTags = function () {
 
+    // 7.2 druga część dodanie akcji po kliknięciu w tag //
 
     /* find all articles */
-    const articles = document.querySelectorAll(optArticleSelector + customSelector);
+    const articles = document.querySelectorAll(optArticleSelector);
 
     console.log('artykuly znalezione', articles);
     /* START LOOP: for every article: */
@@ -199,11 +202,12 @@
       console.log('clickedElement:', clickedElement);
     /* END LOOP: for each found tag link */
     }
+  
     /* execute function "generateTitleLinks" with article selector as argument */
-    function generateTitleLinks(customSelector = ''){
-      console.log('custom selector', customSelector);
-    }
+    // generateTitleLinks('[data-tags~="' + tag + '"]');
+
   };
+  
       
   const addClickListenersToTags = function(){
     /* find all links to tags */
@@ -219,4 +223,63 @@
       
   addClickListenersToTags();
   
+//   /* 7.2 dodanie generate authors */
+
+//     const generateAuthor = function () {
+
+//         const optArticleAuthorSelector = 
+//     /* find all articles */
+//     const articles = document.querySelectorAll(optArticleSelector);
+
+//     console.log('artykuly znalezione', articles);
+//     /* START LOOP: for every article: */
+//     for (let article of articles) {
+
+
+
+//       /* find tags wrapper */
+
+
+//       const authorList = article.querySelector(optArticleTagsSelector);
+//       console.log('lista tagów', tagList);
+
+//       /* make html variable with empty string */
+//       let html = '';
+
+//       /* get tags from data-tags attribute */
+
+//       const articleTags = article.getAttribute('data-tags');
+//       console.log('tagi artykulu', articleTags);
+
+//       /* split tags into array */
+
+//       const articleTagsArray = articleTags.split(' ');
+//       console.log('check', articleTagsArray);
+//       /* START LOOP: for each tag */
+
+//       for (let tag of articleTagsArray) {
+//         console.log('tag', tag);
+
+//         /* generate HTML of the link */
+
+//         const linkHTML = '<li><a href="#' + tagList + '"><span>' + tag + '</span></a></li>'; 
+//         console.log('link html', linkHTML);
+
+//         /* add generated code to html variable */
+//         html = html + linkHTML;
+
+//         console.log('kod', html);
+
+//         /* END LOOP: for each tag */
+
+//         tag = article.querySelectorAll(optArticleSelector);
+//         console.log('tag', tag);
+//         /* insert HTML of all the links into the tags wrapper */
+//         tag.innerHTML = tagList.innerHTML + linkHTML;
+//         /* END LOOP: for every article: */
+//       }
+//     }  
+//   };
+//   generateTags();
+
 }
