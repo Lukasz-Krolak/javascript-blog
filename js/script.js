@@ -132,25 +132,25 @@
 
         /* generate HTML of the link */
 
-        const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>'; 
+        const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + ' ' + '</span></a></li>'; 
         console.log('link html', linkHTML);
 
         /* add generated code to html variable */
-        html = html + linkHTML;
+        html = html + ' ' + linkHTML;
 
         console.log('kod', html);
 
         /* END LOOP: for each tag */
-
-        tag = article.querySelectorAll(optArticleTagsSelector);
-        console.log('tag', tag);
-        
-        /* insert HTML of all the links into the tags wrapper */
-        
-        tag.innerHTML = html;
-        
-        /* END LOOP: for every article: */
       }
+      const tag = article.querySelector(optArticleTagsSelector);
+      console.log('tag', tag);
+      
+      /* insert HTML of all the links into the tags wrapper */
+      
+      tag.innerHTML = html;
+      
+      /* END LOOP: for every article: */
+    
     }  
   };
   generateTags();
@@ -213,11 +213,11 @@
       
   const addClickListenersToTags = function() {
     /* find all links to tags */
-    const tags = document.querySelectorAll('a[href^=#tag-"]');
+    const tags = document.querySelector('a[href^=#tag-"]');
     /* START LOOP: for each link */
     for (let link of tags) {
       console.log('TAg!!!!',link);
-    /* add tagClickHandler as event listener for that link */
+      /* add tagClickHandler as event listener for that link */
     
       link.addEventListener('click', tagClickHandler);
     /* END LOOP: for each link */
@@ -226,63 +226,63 @@
       
   addClickListenersToTags();
   
-//   /* 7.2 dodanie generate authors */
+  //   /* 7.2 dodanie generate authors */
 
-//     const generateAuthor = function () {
+  //     const generateAuthor = function () {
 
-//         const optArticleAuthorSelector = 
-//     /* find all articles */
-//     const articles = document.querySelectorAll(optArticleSelector);
+  //         const optArticleAuthorSelector = 
+  //     /* find all articles */
+  //     const articles = document.querySelectorAll(optArticleSelector);
 
-//     console.log('artykuly znalezione', articles);
-//     /* START LOOP: for every article: */
-//     for (let article of articles) {
-
-
-
-//       /* find tags wrapper */
+  //     console.log('artykuly znalezione', articles);
+  //     /* START LOOP: for every article: */
+  //     for (let article of articles) {
 
 
-//       const authorList = article.querySelector(optArticleTagsSelector);
-//       console.log('lista tagów', tagList);
 
-//       /* make html variable with empty string */
-//       let html = '';
+  //       /* find tags wrapper */
 
-//       /* get tags from data-tags attribute */
 
-//       const articleTags = article.getAttribute('data-tags');
-//       console.log('tagi artykulu', articleTags);
+  //       const authorList = article.querySelector(optArticleTagsSelector);
+  //       console.log('lista tagów', tagList);
 
-//       /* split tags into array */
+  //       /* make html variable with empty string */
+  //       let html = '';
 
-//       const articleTagsArray = articleTags.split(' ');
-//       console.log('check', articleTagsArray);
-//       /* START LOOP: for each tag */
+  //       /* get tags from data-tags attribute */
 
-//       for (let tag of articleTagsArray) {
-//         console.log('tag', tag);
+  //       const articleTags = article.getAttribute('data-tags');
+  //       console.log('tagi artykulu', articleTags);
 
-//         /* generate HTML of the link */
+  //       /* split tags into array */
 
-//         const linkHTML = '<li><a href="#' + tagList + '"><span>' + tag + '</span></a></li>'; 
-//         console.log('link html', linkHTML);
+  //       const articleTagsArray = articleTags.split(' ');
+  //       console.log('check', articleTagsArray);
+  //       /* START LOOP: for each tag */
 
-//         /* add generated code to html variable */
-//         html = html + linkHTML;
+  //       for (let tag of articleTagsArray) {
+  //         console.log('tag', tag);
 
-//         console.log('kod', html);
+  //         /* generate HTML of the link */
 
-//         /* END LOOP: for each tag */
+  //         const linkHTML = '<li><a href="#' + tagList + '"><span>' + tag + '</span></a></li>'; 
+  //         console.log('link html', linkHTML);
 
-//         tag = article.querySelectorAll(optArticleSelector);
-//         console.log('tag', tag);
-//         /* insert HTML of all the links into the tags wrapper */
-//         tag.innerHTML = tagList.innerHTML + linkHTML;
-//         /* END LOOP: for every article: */
-//       }
-//     }  
-//   };
-//   generateTags();
+  //         /* add generated code to html variable */
+  //         html = html + linkHTML;
+
+  //         console.log('kod', html);
+
+  //         /* END LOOP: for each tag */
+
+  //         tag = article.querySelectorAll(optArticleSelector);
+  //         console.log('tag', tag);
+  //         /* insert HTML of all the links into the tags wrapper */
+  //         tag.innerHTML = tagList.innerHTML + linkHTML;
+  //         /* END LOOP: for every article: */
+  //       }
+  //     }  
+  //   };
+  //   generateTags();
 
 }
