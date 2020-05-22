@@ -155,77 +155,88 @@
   };
   generateTags();
 
+  /* 7.2 aktywnosc po kliknieciu */
+
   const tagClickHandler = function(event) {
-        
     /* prevent default action for this event */
+    
     event.preventDefault();
     console.log(event);
     console.log('Link was clicked!');
-
-
+  
     /* make new constant named "clickedElement" and give it the value of "this" */
+    
     const clickedElement = this;
 
-
     /* make a new constant "href" and read the attribute "href" of the clicked element */
-
+  
     const href = clickedElement.getAttribute('href');
     console.log('href', href);
-      
+
     /* make a new constant "tag" and extract tag from the "href" constant */
-        
+
+    
     const tag = href.replace('#tag-', '');
     console.log('tag z hrefa',tag);
-      
+  
     /* find all tag links with class active */
-        
+
     const activeTagLinks = document.querySelectorAll('a[href="' + href + '"]');
     console.log('tagi aktywne', activeTagLinks);
 
     /* START LOOP: for each active tag link */
+  
     for (let activeTag of activeTagLinks) {
-          
+
+
       /* remove class active */
-          
+
       activeTag.classList.remove('active');
       
       /* END LOOP: for each active tag link */
+
     }
+  
     /* find all tag links with "href" attribute equal to the "href" constant */
+  
     const tagLinks = document.querySelectorAll(href);
     console.log('target article', tagLinks);
 
-      
     /* START LOOP: for each found tag link */
+
+    
     for(const tagLink of tagLinks) {
       console.log('link taga', tagLink);
-      /* add class active */
-      clickedElement.classList.add('active');
-      console.log('clickedElement:', clickedElement);
-    /* END LOOP: for each found tag link */
-    }
   
+      /* add class active */
+      tagLink.classList.add('active');
+      console.log('clickedElement:', tagLink);
+    
+      /* END LOOP: for each found tag link */
+    
+    }
+    
     /* execute function "generateTitleLinks" with article selector as argument */
     generateTitleLinks('[data-tags~="' + tag + '"]');
-
-  };
   
-      
-  const addClickListenersToTags = function() {
-    /* find all links to tags */
-    const tags = document.querySelector('a[href^=#tag-"]');
-    /* START LOOP: for each link */
-    for (let link of tags) {
-      console.log('TAg!!!!',link);
-      /* add tagClickHandler as event listener for that link */
+    const addClickListenersToTags = function() {
+      /* find all links to tags */
     
-      link.addEventListener('click', tagClickHandler);
-    /* END LOOP: for each link */
-    }
+      const tags = document.querySelector('a[href^=#tag-"]');
+
+      /* START LOOP: for each link */
+      for (let link of tags) {
+        console.log('TAg!!!!',link);
+    
+        /* add tagClickHandler as event listener for that link */
+        link.addEventListener('click', tagClickHandler);
+      /* END LOOP: for each link */
+      }
+    };
+    addClickListenersToTags();
   };
-      
-  addClickListenersToTags();
   
+ 
   //   /* 7.2 dodanie generate authors */
 
   //     const generateAuthor = function () {
