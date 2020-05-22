@@ -154,6 +154,7 @@
     }  
   };
   generateTags();
+  console.log( 'wygenerowane tagi', generateTags);
 
   /* 7.2 aktywnosc po kliknieciu */
 
@@ -218,23 +219,27 @@
     
     /* execute function "generateTitleLinks" with article selector as argument */
     generateTitleLinks('[data-tags~="' + tag + '"]');
-  
-    const addClickListenersToTags = function() {
-      /* find all links to tags */
     
-      const tags = document.querySelectorAll('a[href^=#tag-"]');
-
-      /* START LOOP: for each link */
-      for (let link of tags) {
-        console.log('TAg!!!!',link);
-    
-        /* add tagClickHandler as event listener for that link */
-        link.addEventListener('click', titleClickHandler);
-      /* END LOOP: for each link */
-      }
-    };
-    addClickListenersToTags();
   };
+
+  const addClickListenersToTags = function() {
+    /* find all links to tags */
+      
+    const tags = document.querySelectorAll('a[href^=#tag-"]');
+  
+    /* START LOOP: for each link */
+    for (let link of tags) {
+      console.log('TAg!!!!',link);
+      
+      /* add tagClickHandler as event listener for that link */
+      link.addEventListener('click', tagClickHandler);
+      /* END LOOP: for each link */
+    }
+  };
+  addClickListenersToTags();
+
+
+  
   
  
   //   /* 7.2 dodanie generate authors */
