@@ -142,12 +142,12 @@
 
         /* END LOOP: for each tag */
 
-        tag = article.querySelectorAll(optArticleSelector);
+        tag = article.querySelectorAll(optArticleTagsSelector);
         console.log('tag', tag);
         
         /* insert HTML of all the links into the tags wrapper */
         
-        tag.innerHTML =tag.innerHTML + html;
+        tag.innerHTML = html;
         
         /* END LOOP: for every article: */
       }
