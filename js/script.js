@@ -282,7 +282,7 @@
 
       /* generate HTML of the link */
 
-      const linkHTML = '<p><a href="#author-' + authorTags + '"><span>' + authorTags + ' ' + '</span></a></p>'; 
+      const linkHTML = '<p><a href="#author-' + authorTags + '"><span>' + authorTags  + '</span></a></p>'; 
       console.log('link html autora', linkHTML);
 
       /* add generated code to html variable */
