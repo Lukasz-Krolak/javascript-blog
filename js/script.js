@@ -282,7 +282,7 @@
 
       /* generate HTML of the link */
 
-      const linkHTML = '<p><a href="#tag-' + authorTags + '"><span>' + authorTags + ' ' + '</span></a></p>'; 
+      const linkHTML = '<p><a href="#author-' + authorTags + '"><span>' + authorTags + ' ' + '</span></a></p>'; 
       console.log('link html autora', linkHTML);
 
       /* add generated code to html variable */
@@ -325,7 +325,7 @@
     /* make a new constant "tag" and extract tag from the "href" constant */
 
     
-    const author = href.replace('#tag-', '');
+    const author = href.replace('#author-', '');
     console.log('author z hrefa',author);
   
     /* find all tag links with class active */
@@ -355,7 +355,7 @@
 
     
     for(const authorLink of authorLinks) {
-      console.log('link taga', authorLink);
+      console.log('link autora', authorLink);
   
       /* add class active */
       authorLink.classList.add('active');
@@ -374,11 +374,11 @@
   const addClickListenersToAuthors = function() {
     /* find all links to author */
       
-    const author = document.querySelectorAll('a[href^="#tag-"]');
+    const author = document.querySelectorAll('a[href^="#author-"]');
   
     /* START LOOP: for each link */
     for (let authorLink of author) {
-      console.log('TAg!!!!',authorLink);
+      console.log('authorRRR',authorLink);
       
       /* add authorClickHandler as event listener for that link */
       authorLink.addEventListener('click', authorClickHandler);
