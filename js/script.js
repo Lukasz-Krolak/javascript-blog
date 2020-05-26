@@ -187,36 +187,36 @@
           params.max = tagList[tag] > params.max ? tagList[tag] : params.max;
           params.min = tagList[tag] < params.min ? tagList[tag] : params.min;
           console.log('params',params);
-
-          /* [NEW] create variable for all links HTML code */
-          let allTagsHTML ='';
-
-          
-          /* [NEW] START LOOP: for each tag in allTags: */
-        
-          for(let tag in allTags){
-           
-            /* [NEW] generate code of a link and add it to allTagsHTML */
-
-            allTagsHTML += '<li><a href="#tag-' + tag  + '"><span>' + tag + ' (' + allTags[tag] + ') ' + '</span></a></li>';
-            console.log('all tags html',allTagsHTML);
-
-            // const tagLinkHTML = '<li><a href="#tag-' + calculateTagClass(allTags[tag], tagsParams) + '</a>' + '</li>';
-            // console.log('tagLinkHTML:', tagLinkHTML);
-
-            /* [NEW] END LOOP: for each tag in allTags: */
-          }
-    
-          /*[NEW] add HTML from allTagsHTML to tagList */
-          tagList.innerHTML = allTagsHTML;
-          console.log('taglist inner',tagList);
-          return params;
         }
+        return params;
       };
       calculateTagsParams(tagList);
       const tagsParams = calculateTagsParams(allTags);
       console.log('tagsParams:', tagsParams);
+          
       
+      /* [NEW] create variable for all links HTML code */
+      let allTagsHTML ='';
+
+      // tagLinkHTML pokazuje jako niezdefiniowane
+      /* [NEW] START LOOP: for each tag in allTags: */
+        
+      for(let tag in allTags){
+           
+        /* [NEW] generate code of a link and add it to allTagsHTML */
+
+        allTagsHTML += '<li><a href="#tag-' + tag  + '"><span>' + tag + ' (' + allTags[tag] + ') ' + '</span></a></li>';
+        console.log('all tags html',allTagsHTML);
+
+        // const tagLinkHTML = '<li><a href="#tag-' + calculateTagClass(allTags[tag], tagsParams) + '</a>' + '</li>';
+        // console.log('tagLinkHTML:', tagLinkHTML);
+
+        /* [NEW] END LOOP: for each tag in allTags: */
+      }
+    
+      /*[NEW] add HTML from allTagsHTML to tagList */
+      tagList.innerHTML = allTagsHTML;
+      console.log('taglist inner',tagList);      
     };
     generateTags();
     console.log( 'wygenerowane tagi', generateTags);
