@@ -175,23 +175,23 @@
       console.log('tag list',tagList);
     
       /* Calculate parameters */
-    
-    
-      const calculateTagsParams = function(tagList){
-
+      const params = {'min':9999, 'max':0};
+      
+      const calculateTagsParams = function(tagsParams) {
+        
         for(let tag in tagList){
           console.log(tag + ' is used ' + tagList[tag] + ' times');
     
-          const params = {'min':9999, 'max':0};
+          
 
           params.max = tagList[tag] > params.max ? tagList[tag] : params.max;
           params.min = tagList[tag] < params.min ? tagList[tag] : params.min;
           console.log('params',params);
         }
+        
         return params;
       };
-      calculateTagsParams(tagList);
-      const tagsParams = calculateTagsParams(allTags);
+      const tagsParams = calculateTagsParams(tagsParams);
       console.log('tagsParams:', tagsParams);
           
       
