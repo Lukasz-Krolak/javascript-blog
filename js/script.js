@@ -106,9 +106,6 @@
   calculateTagsClass();
   /* Calculate parameters */
     
-
-    
-    
   const calculateTagsParams = function(tagList) {
     console.log('calculate tags param', calculateTagsParams);
     console.log('all tags',allTags);  
@@ -191,7 +188,7 @@
       
     /* [NEW] find list of tags in right column */
 
-    const tagList = document.querySelector('.tags');
+    const tagList = document.querySelector(optTagsListSelector);
     console.log('tag list',tagList);
       
     /* [NEW] create variable for all links HTML code */
