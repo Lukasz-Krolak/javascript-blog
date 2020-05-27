@@ -97,9 +97,33 @@
 
 
   const calculateTagsClass = function (count, params) {
+    const normalizedCount = count - params.min;
+    const normalizedMax = params.max - params.min;
+    const percentage = normalizedCount / normalizedMax;
+    const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+    console.log('klass numer',classNumber); 
+  };
+  calculateTagsClass();
+  /* Calculate parameters */
     
-  }
 
+    
+    
+  const calculateTagsParams = function(tagList) {
+    console.log('calculate tags param', calculateTagsParams);
+    console.log('all tags',allTags);  
+    const params = {'min':9999, 'max':0};
+    for(let tag in tagList){
+      console.log(tag + ' is used ' + tagList[tag] + ' times');
+      params.max = tagList[tag] > params.max ? tagList[tag] : params.max;
+      params.min = tagList[tag] < params.min ? tagList[tag] : params.min;
+      console.log('params',params);
+      return optCloudClassPrefix + classNumber;
+    }     
+  };
+  const tagsParams = calculateTagsParams(allTags);
+  console.log('tagsParams:', tagsParams);
+  let allTags = {};
 
   // 7.2 druga część dodanie tagów //
 
@@ -169,31 +193,6 @@
 
     const tagList = document.querySelector('.tags');
     console.log('tag list',tagList);
-    
-    /* Calculate parameters */
-    const params = {'min':9999, 'max':0};
-    const normalizedCount = optCloudClassCount - params.min;
-    const normalizedMax = params.max - params.min;
-    const percentage = normalizedCount / normalizedMax;
-    const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
-    console.log('klass numer',classNumber);
-    
-    
-    const calculateTagsParams = function(allTags) {
-      console.log('calculate tags param', calculateTagsParams);
-      console.log('all tags',allTags);  
-      
-      for(let tag in tagList){
-        console.log(tag + ' is used ' + tagList[tag] + ' times');
-        params.max = tagList[tag] > params.max ? tagList[tag] : params.max;
-        params.min = tagList[tag] < params.min ? tagList[tag] : params.min;
-        console.log('params',params);
-        return optCloudClassPrefix + classNumber;
-      }     
-    };
-    const tagsParams = calculateTagsParams(allTags);
-    console.log('tagsParams:', tagsParams);
-          
       
     /* [NEW] create variable for all links HTML code */
     let allTagsHTML ='';
