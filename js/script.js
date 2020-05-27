@@ -109,12 +109,14 @@
       params.max = tags[tag] > params.max ? tags[tag] : params.max;
       params.min = tags[tag] < params.min ? tags[tag] : params.min;
       console.log('params',params);
-      return params;
       
-    }     
+      
+    }
+    return params;     
   };
 
-  const calculateTagsClass = function(count, params) {
+
+  const calculateTagClass = function(count, params) {
     const normalizedCount = count - params.min;
     const normalizedMax = params.max - params.min;
     const percentage = normalizedCount / normalizedMax;
@@ -122,6 +124,7 @@
     console.log('klass numer',classNumber);
     return optCloudClassPrefix + classNumber;
   };
+  
 
   // 7.2 druga część dodanie tagów //
 
@@ -202,7 +205,7 @@
            
       /* [NEW] generate code of a link and add it to allTagsHTML */
 
-      allTagsHTML += '<li><a class="' + calculateTagsClass(allTags[tag], tagsParams) + '" href="#tag-' + tag  + '"><span>' + tag + ' (' + allTags[tag] + ') ' + '</span></a></li>';
+      allTagsHTML += '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag  + '"><span>' + tag + ' (' + allTags[tag] + ') ' + '</span></a></li>';
       console.log('all tags html',allTagsHTML);
 
       /* [NEW] END LOOP: for each tag in allTags: */
