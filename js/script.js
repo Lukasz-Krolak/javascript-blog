@@ -102,21 +102,25 @@
   const calculateTagsParams = function(tags) {
     console.log('tagsss',tags);
     const params = {'min':9999, 'max':0};
-    const normalizedCount = optCloudClassCount - params.min;
-    const normalizedMax = params.max - params.min;
-    const percentage = normalizedCount / normalizedMax;
-    const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
-    console.log('klass numer',classNumber);
+
     
     for(let tag in tags){
       console.log(tag + ' is used ' + tags[tag] + ' times');
       params.max = tags[tag] > params.max ? tags[tag] : params.max;
       params.min = tags[tag] < params.min ? tags[tag] : params.min;
       console.log('params',params);
-      return optCloudClassPrefix + classNumber;
+      return params;
+      
     }     
   };
- 
+  const calculateTagsClass = function(count, params) {
+    const normalizedCount = count - params.min;
+    const normalizedMax = params.max - params.min;
+    const percentage = normalizedCount / normalizedMax;
+    const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+    console.log('klass numer',classNumber);
+    return optCloudClassPrefix + classNumber;
+  };
   
 
   // 7.2 druga część dodanie tagów //
@@ -182,7 +186,7 @@
       /* END LOOP: for every article: */
     
     }
-      
+  
     /* [NEW] find list of tags in right column */
 
     const tagList = document.querySelector(optTagsListSelector);
@@ -198,7 +202,7 @@
            
       /* [NEW] generate code of a link and add it to allTagsHTML */
 
-      allTagsHTML += '<li><a class="calculateTagsParams(allTags[tag], tagsParams)" href="#tag-' + tag  + '"><span>' + tag + ' (' + allTags[tag] + ') ' + '</span></a></li>';
+      allTagsHTML += '<li><a class="calculateTagsClass(allTags[tag], tagsParams)" href="#tag-' + tag  + '"><span>' + tag + ' (' + allTags[tag] + ') ' + '</span></a></li>';
       console.log('all tags html',allTagsHTML);
 
       /* [NEW] END LOOP: for each tag in allTags: */
