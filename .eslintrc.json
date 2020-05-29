@@ -7,9 +7,10 @@
     "parserOptions": {
         "ecmaVersion": 2015
     },
+    "globals": {
+        "Handlebars": false},
     "rules": {
-        "globals": {
-            "Handlebars": false},
+        
         "indent": [
             "error",
             2
