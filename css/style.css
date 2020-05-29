@@ -118,11 +118,11 @@ ul.list.authors {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-a.tag-size-1 {
+.tag-size-1 {
   font-size: 15px;
   color: rgb(255, 153, 0);
 }
-a.tag-size-2 {
+.tag-size-2 {
   font-size: 17px;
   color: green;
 }

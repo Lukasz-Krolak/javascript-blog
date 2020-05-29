@@ -49,7 +49,7 @@
   const optTagsListSelector = '.list.tags';
   const optCloudClassCount = 5;
   const optCloudClassPrefix = 'tag-size-';
-  const optAuthorListSelector = '.post-authors';
+  const optAuthorListSelector = '.post-author';
 
   const generateTitleLinks = function (customSelector = '') {
     
@@ -374,7 +374,7 @@
 
       /* insert HTML of all the links into the tags wrapper */
       
-      authorTag.innerHTML = html;
+      authorList.innerHTML = html;
 
       /* END LOOP: for every article: */
     }
