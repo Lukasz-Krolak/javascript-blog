@@ -1,7 +1,5 @@
 
 {
-
-
   'use strict';
   
   const templates = {
@@ -171,6 +169,7 @@
         
         const linkHTMLData = {id: tag, title: tag};
         const linkHTML = templates.tagLink(linkHTMLData);
+        console.log('link html', linkHTML);
 
         // const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + ' ' + '</span></a></li>'; 
         // console.log('link html', linkHTML);
