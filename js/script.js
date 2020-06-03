@@ -5,8 +5,9 @@
 
   const templates = {
     tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
+    authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML),
+   
     articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
-    
     tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
     authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
   };
@@ -355,8 +356,10 @@
   const generateAuthors = function () {
 
     /* [NEW] create a new variable allTags with an empty array */
-    let allAuthors = {};    
-    console.log('allauthors',allAuthors);
+    
+    const allAuthors = {};
+    const allAuthorsData = {authors: []}; 
+    console.log('allauthorsData',allAuthorsData);
 
     
     /* find all articles */
@@ -419,12 +422,17 @@
     let allAuthorsHTML = '';
 
     /* [NEW] START LOOP: for each tag in allTags: */
-        
+
     for(let authorTag in allAuthors){
            
       /* [NEW] generate code of a link and add it to allTagsHTML */
     
-      allAuthorsHTML += '<li><a class="' + calculateAuthorsClass(allAuthors[authorTag], authorsParams) + '" href="#author-' + authorTag  + '"><span>' + authorTag + '</span></a></li>';
+      // allAuthorsHTML += '<li><a class="' + calculateAuthorsClass(allAuthors[authorTag], authorsParams) + '" href="#author-' + authorTag  + '"><span>' + authorTag + '</span></a></li>';
+      allAuthors.authors.push({
+        authorTag: authorTag,
+        count: allAuthors[authorTag],
+        className: calculateAuthorsClass(allAuthors[authorTag], authorsParams)
+      });
       console.log('all authors tags html',allAuthorsHTML);
     
       /* [NEW] END LOOP: for each tag in allTags: */
@@ -432,6 +440,7 @@
         
     /*[NEW] add HTML from allTagsHTML to tagList */
     authorList.innerHTML = allAuthorsHTML;
+    authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
     console.log('authorlist inner',authorList);   
 
   };

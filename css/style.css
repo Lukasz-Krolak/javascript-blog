@@ -111,7 +111,9 @@ body {
   display: inline-flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  text-decoration-style: none;
 }
+
 .tag-size-1 {
   font-size: 16px;
   color: aqua;
