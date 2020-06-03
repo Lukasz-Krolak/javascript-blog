@@ -429,7 +429,7 @@
     
       // allAuthorsHTML += '<li><a class="' + calculateAuthorsClass(allAuthors[authorTag], authorsParams) + '" href="#author-' + authorTag  + '"><span>' + authorTag + '</span></a></li>';
       allAuthors.authors.push({
-        authorTag: authorTag,
+        tag: authorTag,
         count: allAuthors[authorTag],
         className: calculateAuthorsClass(allAuthors[authorTag], authorsParams)
       });
