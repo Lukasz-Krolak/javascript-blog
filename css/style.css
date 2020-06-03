@@ -107,35 +107,4 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
-
-ul.list.tags {
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-ul.list.authors {
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.tag-size-1 {
-  font-size: 15px;
-  color: rgb(255, 153, 0);
-}
-.tag-size-2 {
-  font-size: 17px;
-  color: green;
-}
-.tag-size-3 {
-  font-size: 18px;
-  color: #09ffff;
-}
-.tag-size-4 {
-  font-size: 19px;
-  color: red;
-}
-.tag-size-5 {
-  font-size: 20px;
-  color: rgba(173, 0, 20, 0.863);
-}
 /*# sourceMappingURL=style.css.map */
