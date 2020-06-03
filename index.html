@@ -256,6 +256,19 @@
       </main>
     </div>
   </div>
+  <!-- <script id="template-product-list" type="text/x-handlebars-template">
+    <h3>{{ title }}</h3>
+    <ul>
+      {{#each products}}
+      <li id="{{ @key }}">Buy {{ name }} for {{ price }}!</li>
+      {{/each}}
+    </ul>
+  </script> -->
+  <script id="template-tag-cloud-link" type="text/x-handlebars-template">
+    {{#each tags}}
+    <li id="{{count}}{{className}}"> {{ tag }}</li>
+    {{/each}}
+  </script>
 
 
   <script id="template-article-link" type="text/x-handlebars-template">
