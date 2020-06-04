@@ -428,10 +428,10 @@
       /* [NEW] generate code of a link and add it to allTagsHTML */
     
       // allAuthorsHTML += '<li><a class="' + calculateAuthorsClass(allAuthors[authorTag], authorsParams) + '" href="#author-' + authorTag  + '"><span>' + authorTag + '</span></a></li>';
-      allAuthors.authors.push({
+      allAuthorsData.authors.push({
         tag: authorTag,
         count: allAuthors[authorTag],
-        className: calculateAuthorsClass(allAuthors[authorTag], authorsParams)
+        className: calculateAuthorsClass(allAuthors[authorTag], authorsParams),
       });
       console.log('all authors tags html',allAuthorsHTML);
     
@@ -439,9 +439,8 @@
     }
         
     /*[NEW] add HTML from allTagsHTML to tagList */
-    authorList.innerHTML = allAuthorsHTML;
     authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
-    console.log('authorlist inner',authorList);   
+    console.log('authorlist inner',authorList,allAuthorsData);   
 
   };
 
